@@ -34,6 +34,16 @@ public class Main {
         palabrasMagicas[8] = "ojala";
         palabrasMagicas[9] = "luminiscencia";
 
+        String[] signoPerdida = new String[7]; //Arreglo con los signos de perdida
+        signoPerdida[0] = "q";
+        signoPerdida[1] = "(";
+        signoPerdida[2] = "X";
+        signoPerdida[3] = "-";
+        signoPerdida[4] = "X";
+        signoPerdida[5] = ")";
+        signoPerdida[6] = "P";
+
+
         String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
         String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
         int vidas = 7; //Numero de intentos
@@ -60,11 +70,10 @@ public class Main {
             String letraIngresar = leerLetras();
             if (palabraMagica.contains(letraIngresar)) {
                 palabraVacia[palabraMagica.indexOf(letraIngresar)] = letraIngresar;
-            } else {
+            }
+            else {
                 vidas -= 1;
             }
-            //System.out.print("\033[H\033[2J");
-            //System.out.flush();
         }
         System.out.print(palabraMagica); //Imprime la palabra al final
     }

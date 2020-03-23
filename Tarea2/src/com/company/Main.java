@@ -9,6 +9,11 @@ public class Main {
         return (int) Math.floor(Math.random()*10+0);
     }
 
+    public static String leerLetras(){
+        Scanner lector = new Scanner(System.in);
+        return (String) lector.nextLine();
+    }
+
     public static void main(String[] args){
         String[] palabrasMagicas = new String[10];
         palabrasMagicas[0] = "efimero";
@@ -22,7 +27,9 @@ public class Main {
         palabrasMagicas[8] = "ojala";
         palabrasMagicas[9] = "luminiscencia";
 
-        System.out.println(palabrasMagicas[numeroAleatorio()]);
+        String palabraMagica = palabrasMagicas[numeroAleatorio()];
+        int vidas = 7;
+        
     }
 }
 //Hay que ver si mis cambios son visibles y editables

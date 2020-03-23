@@ -14,6 +14,12 @@ public class Main {
         return (String) lector.nextLine();
     }
 
+    public static void imprimirPalabra(String arreglo[]){
+        for(int i=0;i<arreglo.length;i++){
+            System.out.print(arreglo[i]+" ");
+        }
+    }
+
     public static void main(String[] args){
         String[] palabrasMagicas = new String[10];
         palabrasMagicas[0] = "efimero";
@@ -29,7 +35,11 @@ public class Main {
 
         String palabraMagica = palabrasMagicas[numeroAleatorio()];
         int vidas = 7;
-        
+        String[] palabraVacia = new String[palabraMagica.length()];
+        for(int i=0;i<palabraVacia.length;i++){
+            palabraVacia[i] = "_";
+        }
+        imprimirPalabra(palabraVacia);
     }
 }
 //Hay que ver si mis cambios son visibles y editables

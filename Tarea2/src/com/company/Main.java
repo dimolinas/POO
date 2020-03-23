@@ -32,6 +32,16 @@ public class Main {
             arreglo[i] = "_";
         }
     }
+    public static boolean buscadorLetras(String palabraClave, String vacio[], String letraClave){
+        boolean control = false;
+        for (int i=0; i<palabraClave.length(); i++){
+            if(palabraClave.charAt(i) == letraClave.charAt(0)){
+                vacio[i] = letraClave;
+                control = true;
+            }
+        }
+        return control;
+    }
 
     public static void main(String[] args){
 
@@ -61,8 +71,6 @@ public class Main {
         espaciosVacios(palabraVacia); //Se ponen los espacios de las letras de la palabra
         int vidas = 7; //Numero de intentos
 
-
-
         /*
         Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
         (Si no lo meto dentro de la variable, la función se ejecuta varias veces)
@@ -71,27 +79,23 @@ public class Main {
         Si está la letra en la palabra, mira el índice con eso de indexOf y reemplaza el espacio por el de la letra
         Luego imprime la letra con el avance
          */
+
         while (vidas>0) {
             System.out.println("--------------------------------------------------");
             System.out.println("                    Hangman                       ");
             System.out.println("--------------------------------------------------");
+            System.out.println(vidas);
             imprimirPalabra(palabraVacia);
-            System.out.print("          ");
+            System.out.print("          "); // Imprime espacio de sobra
             imprimirSignoPerdida(signoPerdida,(7-vidas));
             System.out.println();
-            String letraIngresar = leerLetras();
-            if (palabraMagica.contains(letraIngresar)) {
-                palabraVacia[palabraMagica.indexOf(letraIngresar)] = letraIngresar;
-            }
-            else {
+            if (! buscadorLetras(palabraMagica,palabraVacia,leerLetras())){
                 vidas -= 1;
-            }
-            if (vidas==0){
-                imprimirPalabra();
             }
         }
         if (vidas==0){
-            System.out.print("You Lose!!!The secret word is:"+palabraMagica); //Imprime la palabra al final
+            
+            System.out.print("You Lose!!!The secret word is: "+palabraMagica); //Imprime la palabra al final
         }
     }
 }

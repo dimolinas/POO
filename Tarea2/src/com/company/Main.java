@@ -45,7 +45,7 @@ public class Main {
         System.out.println();;
 
         /*
-        Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 48) y se mete dentro de una variable
+        Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
         (Si no lo meto dentro de la variable, la función se ejecuta varias veces)
         Después, en el if, verifica si la letra está dentro de la palabra. Si sí, sigue. Si no, sale "Paila" JAJA
         (Toca mirar cómo acomodamos el muñeco ese)

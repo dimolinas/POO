@@ -21,11 +21,8 @@ public class Main {
     }
 
     public static void main(String[] args){
-        String[] palabrasMagicas = new String[10]; //Arreglo Palabras Predefinidas
-        String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
-        String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
-        int vidas = 7; //Numero de intentos
 
+        String[] palabrasMagicas = new String[10]; //Arreglo Palabras Predefinidas
         palabrasMagicas[0] = "efimero";
         palabrasMagicas[1] = "superfluo";
         palabrasMagicas[2] = "inefable";
@@ -36,6 +33,11 @@ public class Main {
         palabrasMagicas[7] = "perenne";
         palabrasMagicas[8] = "ojala";
         palabrasMagicas[9] = "luminiscencia";
+
+        String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
+        String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
+        int vidas = 7; //Numero de intentos
+
 
         for(int i=0;i<palabraVacia.length;i++){
             palabraVacia[i] = "_"; //Se ponen los espacios de las letras de la palabra
@@ -61,6 +63,8 @@ public class Main {
             } else {
                 vidas -= 1;
             }
+            //System.out.print("\033[H\033[2J");
+            //System.out.flush();
         }
         System.out.print(palabraMagica); //Imprime la palabra al final
     }

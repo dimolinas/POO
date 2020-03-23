@@ -86,8 +86,13 @@ public class Main {
             else {
                 vidas -= 1;
             }
+            if (vidas==0){
+                imprimirPalabra();
+            }
         }
-        System.out.print(palabraMagica); //Imprime la palabra al final
+        if (vidas==0){
+            System.out.print("You Lose!!!The secret word is:"+palabraMagica); //Imprime la palabra al final
+        }
     }
 }
 //Hay que ver si mis cambios son visibles y editables

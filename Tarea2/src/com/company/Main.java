@@ -64,7 +64,7 @@ public class Main {
             imprimirPalabra(palabraVacia);
             System.out.println();
         }
-        System.out.print(palabra);
+        System.out.print(palabra); //Imprime la palabra al final
     }
 }
 //Hay que ver si mis cambios son visibles y editables

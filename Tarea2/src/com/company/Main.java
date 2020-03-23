@@ -37,12 +37,14 @@ public class Main {
         //Se escoge una palabra cualquiera según el número aleatorio aquél
         int vidas = 7;
         String[] palabraVacia = new String[palabraMagica.length()];
+
         for(int i=0;i<palabraVacia.length;i++){
             palabraVacia[i] = "_";
             //Se ponen los espacios de las letras de la palabra
         }
         imprimirPalabra(palabraVacia);
-        System.out.println();;
+        System.out.println();
+        String palabra = palabraMagica;
 
         /*
         Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
@@ -52,15 +54,17 @@ public class Main {
         Si está la letra en la palabra, mira el índice con eso de indexOf y reemplaza el espacio por el de la letra
         Luego imprime la letra con el avance
          */
-        String letra = leerLetras();
-        String palabra = palabraMagica;
-        if(palabra.contains(letra)){
-            palabraVacia[palabra.indexOf(letra)] = letra;
-        }else {
-            vidas-=1;
-            System.out.println("Paila");
+        while (vidas>0) {
+            String letraIngresar = leerLetras();
+            if (palabra.contains(letraIngresar)) {
+                palabraVacia[palabra.indexOf(letraIngresar)] = letraIngresar;
+            } else {
+                vidas -= 1;
+            }
+            imprimirPalabra(palabraVacia);
+            System.out.println();
         }
-        imprimirPalabra(palabraVacia);
+        System.out.print(palabra);
     }
 }
 //Hay que ver si mis cambios son visibles y editables

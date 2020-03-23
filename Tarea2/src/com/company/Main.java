@@ -21,7 +21,11 @@ public class Main {
     }
 
     public static void main(String[] args){
-        String[] palabrasMagicas = new String[10];
+        String[] palabrasMagicas = new String[10]; //Arreglo Palabras Predefinidas
+        String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
+        String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
+        int vidas = 7; //Numero de intentos
+
         palabrasMagicas[0] = "efimero";
         palabrasMagicas[1] = "superfluo";
         palabrasMagicas[2] = "inefable";
@@ -33,18 +37,9 @@ public class Main {
         palabrasMagicas[8] = "ojala";
         palabrasMagicas[9] = "luminiscencia";
 
-        String palabraMagica = palabrasMagicas[numeroAleatorio()];
-        //Se escoge una palabra cualquiera según el número aleatorio aquél
-        int vidas = 7;
-        String[] palabraVacia = new String[palabraMagica.length()];
-
         for(int i=0;i<palabraVacia.length;i++){
-            palabraVacia[i] = "_";
-            //Se ponen los espacios de las letras de la palabra
+            palabraVacia[i] = "_"; //Se ponen los espacios de las letras de la palabra
         }
-        imprimirPalabra(palabraVacia);
-        System.out.println();
-        String palabra = palabraMagica;
 
         /*
         Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
@@ -55,16 +50,19 @@ public class Main {
         Luego imprime la letra con el avance
          */
         while (vidas>0) {
+            System.out.println("--------------------------------------------------");
+            System.out.println("                    Hangman                       ");
+            System.out.println("--------------------------------------------------");
+            imprimirPalabra(palabraVacia);
+            System.out.println();
             String letraIngresar = leerLetras();
-            if (palabra.contains(letraIngresar)) {
-                palabraVacia[palabra.indexOf(letraIngresar)] = letraIngresar;
+            if (palabraMagica.contains(letraIngresar)) {
+                palabraVacia[palabraMagica.indexOf(letraIngresar)] = letraIngresar;
             } else {
                 vidas -= 1;
             }
-            imprimirPalabra(palabraVacia);
-            System.out.println();
         }
-        System.out.print(palabra); //Imprime la palabra al final
+        System.out.print(palabraMagica); //Imprime la palabra al final
     }
 }
 //Hay que ver si mis cambios son visibles y editables

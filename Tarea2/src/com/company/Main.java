@@ -9,14 +9,27 @@ public class Main {
     }
 
     public static String leerLetras(){
-        //Lee la letra ingresada por el usuario
-        Scanner lector = new Scanner(System.in);
+        Scanner lector = new Scanner(System.in); //Lee la letra ingresada por el usuario
         return (String) lector.nextLine();
     }
 
     public static void imprimirPalabra(String arreglo[]){
         for(int i=0;i<arreglo.length;i++){
             System.out.print(arreglo[i]+" ");
+        }
+    }
+
+    public static void imprimirSignoPerdida(String arreglo[],int parametro){
+        if(parametro != 0){
+            for(int i=0; i<parametro; i++){
+                System.out.print(arreglo[i]);
+            }
+        }
+    }
+
+    public static void espaciosVacios(String arreglo[]){
+        for(int i=0;i<arreglo.length;i++){
+            arreglo[i] = "_";
         }
     }
 
@@ -43,15 +56,12 @@ public class Main {
         signoPerdida[5] = ")";
         signoPerdida[6] = "P";
 
-
         String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
         String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
+        espaciosVacios(palabraVacia); //Se ponen los espacios de las letras de la palabra
         int vidas = 7; //Numero de intentos
 
 
-        for(int i=0;i<palabraVacia.length;i++){
-            palabraVacia[i] = "_"; //Se ponen los espacios de las letras de la palabra
-        }
 
         /*
         Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
@@ -66,6 +76,8 @@ public class Main {
             System.out.println("                    Hangman                       ");
             System.out.println("--------------------------------------------------");
             imprimirPalabra(palabraVacia);
+            System.out.print("          ");
+            imprimirSignoPerdida(signoPerdida,(7-vidas));
             System.out.println();
             String letraIngresar = leerLetras();
             if (palabraMagica.contains(letraIngresar)) {

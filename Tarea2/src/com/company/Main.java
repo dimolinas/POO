@@ -1,7 +1,5 @@
 package com.company;
 
-
-
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -21,7 +19,7 @@ public class Main {
             System.out.print(arreglo[i] + " ");
         }
     }
-    
+
 
     public static void imprimirSignoPerdida(String arreglo[], int parametro) {
         if (parametro != 0) {
@@ -95,7 +93,7 @@ public class Main {
             imprimirPalabra(palabraVacia);
             System.out.print("          "); // Imprime espacio de sobra
             imprimirSignoPerdida(signoPerdida, (7 - vidas));
-           // System.out.print("          "); // Imprime otro espacio de sobra
+            // System.out.print("          "); // Imprime otro espacio de sobra
             System.out.println();
             if (!buscadorLetras(palabraMagica, palabraVacia, leerLetras())) {
                 vidas -= 1;
@@ -104,9 +102,9 @@ public class Main {
         }
         if (vidas == 0) {
             System.out.print("You Lose!!!The secret word is: " + palabraMagica); //Imprime la palabra al final
-        } else {if (!finalizar(palabraVacia)) {
-            System.out.println("Has terminado el juego");
-            }
-        }
+        } //else {if (!finalizar(palabraVacia)) {
+            //System.out.println("Has terminado el juego");
+        //}
     }
+
 }

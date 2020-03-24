@@ -85,6 +85,7 @@ public class Main {
 
 
         while (vidas > 0) {
+            //Usar siempre rama de master
             System.out.println("--------------------------------------------------");
             System.out.println("                     Hangman                      ");
             System.out.println("--------------------------------------------------");

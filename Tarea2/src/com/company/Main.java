@@ -70,6 +70,7 @@ public class Main {
         String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
         espaciosVacios(palabraVacia); //Se ponen los espacios de las letras de la palabra
         int vidas = 7; //Numero de intentos
+        int turnos = 0;
 
         /*
         Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
@@ -81,6 +82,7 @@ public class Main {
          */
 
         while (vidas>0) {
+            turnos += 1;
             System.out.println("--------------------------------------------------");
             System.out.println("                    Hangman                       ");
             System.out.println("--------------------------------------------------");
@@ -94,7 +96,6 @@ public class Main {
             }
         }
         if (vidas==0){
-            
             System.out.print("You Lose!!!The secret word is: "+palabraMagica); //Imprime la palabra al final
         }
     }

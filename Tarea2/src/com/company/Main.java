@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static int numeroAleatorio() {
-        return (int) Math.floor(Math.random() * 10 + 0);
+        return (int) Math.floor(Math.random() * 10 + 0);  // Retorna numero aleatorio
     }
 
     public static String leerLetras() {
@@ -100,15 +100,7 @@ public class Main {
             }
             if (finalizar(palabraVacia, palabraMagica)) {
                 imprimirPalabra(palabraVacia);
-                System.out.println();
-                System.out.println();
                 System.out.println("You Win!!!");
-                System.out.println("   _O/                   ,");
-                System.out.println("     \\                  /           \\O_");
-                System.out.println("     /\\_             `\\_\\        ,/\\/");
-                System.out.println("     \\  `        ,       \\         /");
-                System.out.println("     `       O/ /       /O\\        \\");
-                System.out.println("             /\\|/\\.                `");
                 break;
             }
 

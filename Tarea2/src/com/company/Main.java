@@ -1,5 +1,7 @@
 package com.company;
 
+
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -19,6 +21,7 @@ public class Main {
             System.out.print(arreglo[i] + " ");
         }
     }
+    
 
     public static void imprimirSignoPerdida(String arreglo[], int parametro) {
         if (parametro != 0) {
@@ -27,7 +30,6 @@ public class Main {
             }
         }
     }
-
     public static void espaciosVacios(String arreglo[]) {
         for (int i = 0; i < arreglo.length; i++) {
             arreglo[i] = "_";
@@ -45,17 +47,17 @@ public class Main {
         return control;
     }
 
-    public static boolean finalizar(String pal[]) {
-        boolean terminado = true;
-        for (int i = 0; i < pal.length; i++) {
-                if (pal[i] == ("_")) {
-                    terminado = false;
-                    break;
-                }
-        }
-        return terminado;
-    }
-    
+//    public static boolean finalizar(String pal[]) { //No encontré la manera de darle finalización a esto :( | Me siento re miserable
+//        boolean terminado = true;
+//        for (int i = 0; i < pal.length; i++) {
+//                if (pal[i] == ("_")) {
+//                    terminado = false;
+//                    break;
+//                }
+//        }
+//        return terminado;
+//    }
+
     public static void main(String[] args) {
 
         String[] palabrasMagicas = new String[10]; //Arreglo Palabras Predefinidas
@@ -83,7 +85,7 @@ public class Main {
         String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
         espaciosVacios(palabraVacia); //Se ponen los espacios de las letras de la palabra
         int vidas = 7; //Numero de intentos
-        
+
 
         while (vidas > 0) {
             System.out.println("--------------------------------------------------");
@@ -93,8 +95,7 @@ public class Main {
             imprimirPalabra(palabraVacia);
             System.out.print("          "); // Imprime espacio de sobra
             imprimirSignoPerdida(signoPerdida, (7 - vidas));
-            System.out.print("          "); // Imprime otro espacio de sobra
-
+           // System.out.print("          "); // Imprime otro espacio de sobra
             System.out.println();
             if (!buscadorLetras(palabraMagica, palabraVacia, leerLetras())) {
                 vidas -= 1;

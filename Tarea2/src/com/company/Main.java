@@ -45,16 +45,15 @@ public class Main {
         return control;
     }
 
-//    public static boolean finalizar(String pal[]) { //No encontré la manera de darle finalización a esto :( | Me siento re miserable
-//        boolean terminado = true;
-//        for (int i = 0; i < pal.length; i++) {
-//                if (pal[i] == ("_")) {
-//                    terminado = false;
-//                    break;
-//                }
-//        }
-//        return terminado;
-//    }
+    public static boolean finalizar(String pal[]) { //No encontré la manera de darle finalización a esto :( | Me siento re miserable
+        for (int i = 0; i < pal.length; i++) {
+                if (pal[i] == ("_")) {
+                    terminado = false;
+                    break;
+                }
+        }
+        return terminado;
+    }
 
     public static void main(String[] args) {
 
@@ -103,7 +102,7 @@ public class Main {
         if (vidas == 0) {
             System.out.print("You Lose!!!The secret word is: " + palabraMagica); //Imprime la palabra al final
         } //else {if (!finalizar(palabraVacia)) {
-        //System.out.println("Has terminado el juego");
+            //System.out.println("Has terminado el juego");
         //}
     }
 

@@ -1,5 +1,6 @@
 package com.company;
 
+
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -45,13 +46,12 @@ public class Main {
         return control;
     }
 
-    public static boolean finalizar(String pal[]) { //No encontré la manera de darle finalización a esto :( | Me siento re miserable
-        for (int i = 0; i < pal.length; i++) {
-                if (pal[i] == ("_")) {
-                    terminado = false;
-                    break;
+    public static boolean finalizar(String pal[], String palabra) { //No encontré la manera de darle finalización a esto :( | Me siento re miserable
+        String palabraEnLista = String.join("", pal);
+        boolean terminado = false;
+        if (palabraEnLista.equals(palabra)) {//Compara la palabra escogida al azar con la palabra formada hasta el momento
+                    terminado = true;//Si las palabras son iguales, retorna true
                 }
-        }
         return terminado;
     }
 
@@ -97,13 +97,18 @@ public class Main {
             if (!buscadorLetras(palabraMagica, palabraVacia, leerLetras())) {
                 vidas -= 1;
             }
+            if (finalizar(palabraVacia, palabraMagica)) {//Si el retorno es true: imprime que todo bien y termina el ciclo
+                imprimirPalabra(palabraVacia);
+                System.out.println();
+                System.out.println("Has terminado el juego");
+                break;
+            }
 
         }
         if (vidas == 0) {
             System.out.print("You Lose!!!The secret word is: " + palabraMagica); //Imprime la palabra al final
-        } //else {if (!finalizar(palabraVacia)) {
-            //System.out.println("Has terminado el juego");
-        //}
-    }
+        }
 
+    }
 }
+

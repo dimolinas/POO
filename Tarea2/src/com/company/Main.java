@@ -1,7 +1,6 @@
 package com.company;
 
 
-
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -93,15 +92,23 @@ public class Main {
             imprimirPalabra(palabraVacia);
             System.out.print("          "); // Imprime espacio de sobra
             imprimirSignoPerdida(signoPerdida, (7 - vidas));
-            // System.out.print("          "); // Imprime otro espacio de sobra
             System.out.println();
+            //String ingreso = (leerLetras());
+            //System.out.print("    " + ingreso);
             if (!buscadorLetras(palabraMagica, palabraVacia, leerLetras())) {
                 vidas -= 1;
             }
             if (finalizar(palabraVacia, palabraMagica)) {
                 imprimirPalabra(palabraVacia);
                 System.out.println();
+                System.out.println();
                 System.out.println("You Win!!!");
+                System.out.println("   _O/                   ,");
+                System.out.println("     \\                  /           \\O_");
+                System.out.println("     /\\_             `\\_\\        ,/\\/");
+                System.out.println("     \\  `        ,       \\         /");
+                System.out.println("     `       O/ /       /O\\        \\");
+                System.out.println("             /\\|/\\.                `");
                 break;
             }
 
@@ -113,4 +120,3 @@ public class Main {
 
     }
 }
-

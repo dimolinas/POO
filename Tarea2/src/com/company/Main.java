@@ -5,37 +5,39 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int numeroAleatorio(){return (int) Math.floor(Math.random()*10+0);
+    public static int numeroAleatorio() {
+        return (int) Math.floor(Math.random() * 10 + 0);
     }
 
-    public static String leerLetras(){
+    public static String leerLetras() {
         Scanner lector = new Scanner(System.in); //Lee la letra ingresada por el usuario
         return (String) lector.nextLine();
     }
 
-    public static void imprimirPalabra(String arreglo[]){
-        for(int i=0;i<arreglo.length;i++){
-            System.out.print(arreglo[i]+" ");
+    public static void imprimirPalabra(String arreglo[]) {
+        for (int i = 0; i < arreglo.length; i++) {
+            System.out.print(arreglo[i] + " ");
         }
     }
 
-    public static void imprimirSignoPerdida(String arreglo[],int parametro){
-        if(parametro != 0){
-            for(int i=0; i<parametro; i++){
+    public static void imprimirSignoPerdida(String arreglo[], int parametro) {
+        if (parametro != 0) {
+            for (int i = 0; i < parametro; i++) {
                 System.out.print(arreglo[i]);
             }
         }
     }
 
-    public static void espaciosVacios(String arreglo[]){
-        for(int i=0;i<arreglo.length;i++){
+    public static void espaciosVacios(String arreglo[]) {
+        for (int i = 0; i < arreglo.length; i++) {
             arreglo[i] = "_";
         }
     }
-    public static boolean buscadorLetras(String palabraClave, String vacio[], String letraClave){
+
+    public static boolean buscadorLetras(String palabraClave, String vacio[], String letraClave) {
         boolean control = false;
-        for (int i=0; i<palabraClave.length(); i++){
-            if(palabraClave.charAt(i) == letraClave.charAt(0)){
+        for (int i = 0; i < palabraClave.length(); i++) {
+            if (palabraClave.charAt(i) == letraClave.charAt(0)) {
                 vacio[i] = letraClave;
                 control = true;
             }
@@ -43,7 +45,18 @@ public class Main {
         return control;
     }
 
-    public static void main(String[] args){
+    public static boolean finalizar(String pal[]) {
+        boolean terminado = true;
+        for (int i = 0; i < pal.length; i++) {
+                if (pal[i] == ("_")) {
+                    terminado = false;
+                    break;
+                }
+        }
+        return terminado;
+    }
+    
+    public static void main(String[] args) {
 
         String[] palabrasMagicas = new String[10]; //Arreglo Palabras Predefinidas
         palabrasMagicas[0] = "efimero";
@@ -57,47 +70,42 @@ public class Main {
         palabrasMagicas[8] = "ojala";
         palabrasMagicas[9] = "luminiscencia";
 
-        String[] signoPerdida = new String[7]; //Arreglo con los signos de perdida
+        String[] signoPerdida = new String[7]; //Arreglo con los signos de pérdida
         signoPerdida[0] = "q";
         signoPerdida[1] = "(";
         signoPerdida[2] = "X";
         signoPerdida[3] = "-";
         signoPerdida[4] = "X";
         signoPerdida[5] = ")";
-        signoPerdida[6] = "P";
+        signoPerdida[6] = "p";
 
         String palabraMagica = palabrasMagicas[numeroAleatorio()]; //Palabra escogida aleatoriamente, se escoge una palabra cualquiera según el número aleatorio aquél
         String[] palabraVacia = new String[palabraMagica.length()]; //Arreglo palabra vacia
         espaciosVacios(palabraVacia); //Se ponen los espacios de las letras de la palabra
         int vidas = 7; //Numero de intentos
+        
 
-        /*
-        Aquí, la palabra que mete el usuario se lee sólo una vez (renglón 55) y se mete dentro de una variable
-        (Si no lo meto dentro de la variable, la función se ejecuta varias veces)
-        Después, en el if, verifica si la letra está dentro de la palabra. Si sí, sigue. Si no, sale "Paila" JAJA
-        (Toca mirar cómo acomodamos el muñeco ese)
-        Si está la letra en la palabra, mira el índice con eso de indexOf y reemplaza el espacio por el de la letra
-        Luego imprime la letra con el avance
-         */
-
-        while (vidas>0) {
+        while (vidas > 0) {
             System.out.println("--------------------------------------------------");
-            System.out.println("                    Hangman                       ");
+            System.out.println("                     Hangman                      ");
             System.out.println("--------------------------------------------------");
-            System.out.println(vidas);
+            System.out.println("Te quedan " + vidas + " vidas");
             imprimirPalabra(palabraVacia);
             System.out.print("          "); // Imprime espacio de sobra
-            imprimirSignoPerdida(signoPerdida,(7-vidas));
+            imprimirSignoPerdida(signoPerdida, (7 - vidas));
+            System.out.print("          "); // Imprime otro espacio de sobra
+
             System.out.println();
-            if (! buscadorLetras(palabraMagica,palabraVacia,leerLetras())){
+            if (!buscadorLetras(palabraMagica, palabraVacia, leerLetras())) {
                 vidas -= 1;
             }
+
         }
-        if (vidas==0){
-            
-            System.out.print("You Lose!!!The secret word is: "+palabraMagica); //Imprime la palabra al final
+        if (vidas == 0) {
+            System.out.print("You Lose!!!The secret word is: " + palabraMagica); //Imprime la palabra al final
+        } else {if (!finalizar(palabraVacia)) {
+            System.out.println("Has terminado el juego");
+            }
         }
     }
 }
-//Hay que ver si mis cambios son visibles y editables
-//Por cierto, para que le corra en el IDE toca quitarle el renglón de Package y copiar el resto en una clase de nombre Main

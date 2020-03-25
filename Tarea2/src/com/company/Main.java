@@ -14,9 +14,19 @@ public class Main {
     }
 
     public static String leerLetras(List lista) {
-        Scanner lector = new Scanner(System.in); //Lee la letra ingresada por el usuario
-        String letra = lector.nextLine();
-        return letra;
+        Scanner lector = new Scanner(System.in);
+        String letra;
+        while (true){
+            System.out.print("Ingresa una letra: ");
+            letra = lector.nextLine().toLowerCase();
+            int valorAscii = (int)letra.charAt(0);
+            if ( (97 <= valorAscii && valorAscii <= 127) && (! lista.contains(letra))){
+                lista.add(letra);
+                return letra;
+            }else{
+                System.out.println("Entrada invalida o repetida");
+            }
+        }
     }
 
     public static void imprimirPalabra(String arreglo[]) {
@@ -115,7 +125,6 @@ public class Main {
             imprimirDatos(signoPerdida, (7 - vidas), letrasIngresadas);
 
             String letraEntrada = leerLetras(letrasIngresadas);
-            letrasIngresadas.add(letraEntrada);
 
             if (!buscadorLetras(palabraMagica, palabraVacia, letraEntrada)) {
                 vidas -= 1;

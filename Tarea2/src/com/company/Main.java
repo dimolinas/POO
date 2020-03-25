@@ -132,7 +132,7 @@ public class Main {
 
             if (finalizar(palabraVacia, palabraMagica)) {
                 imprimirPalabra(palabraVacia);
-                System.out.println("You Win!!!");
+                System.out.println("\n------------------!!!You Win!!!---------------");
                 break;
             }
 

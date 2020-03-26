@@ -115,7 +115,6 @@ public class Main {
 
 
         while (vidas > 0) {
-
             System.out.println("--------------------------------------------------");
             System.out.println("                     Hangman                      ");
             System.out.println("--------------------------------------------------");
